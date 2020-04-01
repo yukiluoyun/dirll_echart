@@ -48,7 +48,7 @@ var myMultiMap = function(obj){
             placeCode = _placeCode;
         }
         // url = ctx+'/bigdata/listJson?level='+ urlLevel+ '&areaCode='+ placeCode;
-        url = './json/listJsonlevel1areaCode360100.json'; //此例子暂时写死url，真实项目中用上面的代码
+        url = './json/listJsonlevel1areaCode360100.json';
         if(_breadcrumb){
             $("#breadcrumb").html(_breadcrumb);
         }
@@ -206,29 +206,32 @@ var myMultiMap = function(obj){
                 extraCssText: 'z-index:100',
                 formatter: function (e) {
                     //根据业务自己拓展要显示的内容
-                    if(e.data.value){
-                        var len = e.data.value.length;
-                        var str='<div>'+e.data.name+'</div>';
-                        var tempData = [];
-                        e.data.value.forEach(function(item,index){
-                            if(index != 0 && index != 1 && index != 2  && index !=   e.data.value.length-1){ //排除经、纬度、等级值、项目
-                                tempData.push(item);
-                            }
-                        });
-                        var color = ["#00e9ff","#16d5b3","#f69d1f"];
-                        for (var i = 0; i < tempData.length; i++) {
-                            str+='<div style="height:32px;line-height:32px;color:'+ color[i]+';min-width:150px;">\n' +
-                                '<div style="float:left;">\n'  +
-                                '<i style="vertical-align:top; display:inline-block;margin:13px 6px 0 0; width:8px;height:8px;background-color:'+ color[i]+';border-radius:50%;"></i>\n'
-                                +e.data.value[len-1][i]+
-                                '</div>\n' +
-                                '<div style="float:right;">\n'
-                                +tempData[i]+
-                                '</div>\n'  +
-                                '</div>';
+                    console.log('e==',e);
+
+                    var len = e.data.value.length;
+                if(){
+                    
+                }
+                    var str='<div>'+e.data.name+'</div>';
+                    var tempData = [];
+                    e.data.value.forEach(function(item,index){
+                        if(index != 0 && index != 1 && index != 2  && index !=   e.data.value.length-1){ //排除经、纬度、等级值、项目
+                            tempData.push(item);
                         }
-                        return str;
+                    });
+                    var color = ["#00e9ff","#16d5b3","#f69d1f"];
+                    for (var i = 0; i < tempData.length; i++) {
+                        str+='<div style="height:32px;line-height:32px;color:'+ color[i]+';min-width:150px;">\n' +
+                            '<div style="float:left;">\n'  +
+                            '<i style="vertical-align:top; display:inline-block;margin:13px 6px 0 0; width:8px;height:8px;background-color:'+ color[i]+';border-radius:50%;"></i>\n'
+                            +e.data.value[len-1][i]+
+                            '</div>\n' +
+                            '<div style="float:right;">\n'
+                            +tempData[i]+
+                            '</div>\n'  +
+                            '</div>';
                     }
+                    return str;
                 }
             },
             geo: {

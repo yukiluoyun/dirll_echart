@@ -48,7 +48,7 @@ var myMultiMap = function(obj){
             placeCode = _placeCode;
         }
         // url = ctx+'/bigdata/listJson?level='+ urlLevel+ '&areaCode='+ placeCode;
-        url = './json/listJsonlevel1areaCode360100.json'; //此例子暂时写死url，真实项目中用上面的代码
+        url = './json/listJsonlevel1areaCode360100.json'; //此例子暂时写死
         if(_breadcrumb){
             $("#breadcrumb").html(_breadcrumb);
         }

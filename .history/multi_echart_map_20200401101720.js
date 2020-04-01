@@ -48,7 +48,7 @@ var myMultiMap = function(obj){
             placeCode = _placeCode;
         }
         // url = ctx+'/bigdata/listJson?level='+ urlLevel+ '&areaCode='+ placeCode;
-        url = './json/listJsonlevel1areaCode360100.json'; //此例子暂时写死url，真实项目中用上面的代码
+        url = './json/listJsonlevel1areaCode360100.json';
         if(_breadcrumb){
             $("#breadcrumb").html(_breadcrumb);
         }
@@ -206,8 +206,10 @@ var myMultiMap = function(obj){
                 extraCssText: 'z-index:100',
                 formatter: function (e) {
                     //根据业务自己拓展要显示的内容
-                    if(e.data.value){
-                        var len = e.data.value.length;
+                    console.log('e==',e);
+
+                    var len = e.data.value.length;
+                    if(len){
                         var str='<div>'+e.data.name+'</div>';
                         var tempData = [];
                         e.data.value.forEach(function(item,index){
